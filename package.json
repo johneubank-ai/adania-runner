@@ -1,0 +1,26 @@
+{
+  "name": "adania-runner",
+  "version": "0.1.0",
+  "description": "Adania runner — the headless reverse-WebSocket runtime an org member runs to serve their assigned Desktop-app agents. Checks for a local Cognito session (opens a browser login if none), dials the Adania relay, and runs each turn locally via the Claude Agent SDK.",
+  "type": "module",
+  "bin": {
+    "adania-runner": "bin/cli.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "README.md"
+  ],
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.183",
+    "ws": "^8.18.0"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johneubank-ai/adania-runner.git"
+  }
+}

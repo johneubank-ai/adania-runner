@@ -1,0 +1,8 @@
+node_modules/
+.adania/
+session.json
+tokens.json
+*.log
+.DS_Store
+.env
+.env.*
