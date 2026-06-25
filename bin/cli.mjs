@@ -18,8 +18,10 @@ login). Keep it running. Override the backend with ADANIA_API=...`);
 }
 
 try {
-  const idToken = await ensureSession();
-  await runForever(idToken);
+  // Pass ensureSession as a token GETTER (not a one-shot token): runForever calls it at startup and before
+  // every reconnect, so the ~1h Cognito ID token is refreshed for each `hello` and the runner survives
+  // overnight instead of getting stuck on 4401 after the token lapses.
+  await runForever(ensureSession);
 } catch (e) {
   console.error("\nadania-runner failed:", e?.message ?? e);
   process.exit(1);
